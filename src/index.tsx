@@ -6,25 +6,33 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Home, Stat, Trend, Benefits, Experience, Terms} from "./rotues";
 import CustomDrawer from "./components/CustomDrawer";
 import App from "./App";
+import {QueryClient, QueryClientProvider} from "react-query";
+import {ReactQueryDevtools} from "react-query/devtools";
 
+const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
+
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <CustomDrawer/>
-            <div id="wrap">
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/stat" element={<Stat/>}/>
-                    <Route path="/trend" element={<Trend/>}/>
-                    <Route path="/benefits" element={<Benefits/>}/>
-                    <Route path="/terms" element={<Terms/>}/>
-                    <Route path="/experience" element={<Experience/>}/>
-                </Routes>
-            </div>
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+            {/* devtools */}
+            <ReactQueryDevtools initialIsOpen={true}/>
+            <BrowserRouter>
+                <CustomDrawer/>
+                <div id="wrap">
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/stat" element={<Stat/>}/>
+                        <Route path="/trend" element={<Trend/>}/>
+                        <Route path="/benefits" element={<Benefits/>}/>
+                        <Route path="/terms" element={<Terms/>}/>
+                        <Route path="/experience" element={<Experience/>}/>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </QueryClientProvider>
     </React.StrictMode>
 );
 
