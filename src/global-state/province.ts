@@ -5,9 +5,9 @@ export const provinceState = atom({
     default: '경기도', // default value (aka initial value)
 });
 
-export const getSelectedProvince = selector({
-    key: 'getSelectedProvince', // unique ID (with respect to other atoms/selectors)
-    get: ({get}) => {
-        return get(provinceState);
-    },
-});
+// export const getSelectedProvince = selector({
+//     key: 'getSelectedProvince', // unique ID (with respect to other atoms/selectors)
+//     get: ({get}) => {
+//         return get(provinceState);
+//     },
+// });

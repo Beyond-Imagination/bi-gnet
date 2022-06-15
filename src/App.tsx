@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomDrawer from "./components/CustomDrawer";
+import CustomDrawer from "./common/CustomDrawer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomeContainer from './home/HomeContainer';
 import ExperienceContainer from "./experience/ExperienceContainer";
