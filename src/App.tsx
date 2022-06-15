@@ -1,16 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import CustomDrawer from "./components/CustomDrawer";
-import {Route} from "react-router-dom";
-import {Benefits, Experience, Home, Stat, Trend} from "./rotues";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import HomeContainer from './home/HomeContainer';
+import ExperienceContainer from "./experience/ExperienceContainer";
+import BenefitContainer from "./benefit/BenefitContainer";
+import TrendContainer from "./trend/TrendContainer";
+import StatContainer from "./stat/StatContainer";
+import TermContainer from "./terms/TermContainer";
 
 
 const App: React.FC = ({}) => {
     return (
-        <div className="App">
-
-        </div>
+        <BrowserRouter>
+            <CustomDrawer/>
+            <div id="wrap">
+                <Routes>
+                    <Route path="/" element={<HomeContainer/>}/>
+                    <Route path="/stat" element={<StatContainer/>}/>
+                    <Route path="/trend" element={<TrendContainer/>}/>
+                    <Route path="/benefits" element={<BenefitContainer/>}/>
+                    <Route path="/terms" element={<TermContainer/>}/>
+                    <Route path="/experience" element={<ExperienceContainer/>}/>
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 

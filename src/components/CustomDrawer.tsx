@@ -73,7 +73,7 @@ export default function CustomDrawer() {
                 </ListItem>
                 <ListItem key={'Benefits'} disablePadding>
                     <ListItemButton onClick={() => {
-                        navigation("/benefits")
+                        navigation("/benefit")
                     }}>
                         <ListItemIcon>
                             <StatIcon/>
