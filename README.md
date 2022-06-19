@@ -1,46 +1,89 @@
-# Getting Started with Create React App
+# 귀농어때 Fonrtend 가이드
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 시작하기
 
-## Available Scripts
+```shell
+npm install  #or yarn install
+npm start  # or yarn start
+```
 
-In the project directory, you can run:
+## 주요 라이브러리
 
-### `npm start`
+### React Query
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- https://react-query.tanstack.com/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React를 위한 강력하고 성능 좋은 데이터 동기화
 
-### `npm test`
+- "전역 상태"를 건드리지 않고 React 및 React Native 애플리케이션에서 데이터를 가져오고, 캐시하고, 업데이트합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Recoil
 
-### `npm run build`
+- https://recoiljs.org/ko/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React를 위한 상태관리 라이브러리
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 디렉터리 구조
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1.Container (XXXContainer pattern)
 
-### `npm run eject`
+- 비즈니스 로직 작성을 위한 컴포넌트
+- 데이터와 데이터 컨트롤 관련 함수 작성
+- 주요 데이터 및 함수를 View component에 제공
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 2. View (XXXVeiw pattern)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- UI 작성용 컴포넌트
+- Container 로부터 주입받은 데이터를 활용하여 출력하는 함수
+- 데이터 수정 과같은 로직은 피해야합니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Global State (~/src/global-state)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Recoil 관련 코드가 저장됨
+- 모든 컴포넌트들에서 공통적으로 사용되는 스테이트들을 관리하기위한 코드
 
-## Learn More
+## 주요 참고 코드
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 선택된 지역 가져오기
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+import {useRecoilState} from "recoil";
+import {provinceState} from "../global-state/province"
+
+const XXXContainer: React.FC = () => {
+    const [province, setProvince] = useRecoilState(provinceState); //선택된 지역 가져오기
+    return (
+        <XXXView></XXXView>
+    )
+}
+```
+
+### API 연동하기
+
+```javascript
+
+const fetchStatList = () =>
+    fetch('https://localhost:8080/stats') // 요청할 API 주소
+        .then(res => res.json());
+
+const StatContainer: React.FC = () => {
+    const {status, data, error} = useQuery("stats", fetchStatList);
+
+    if (status === "loading") {
+        return <span>Loading...</span>;
+    }
+
+    if (status === "error") {
+        return <span>Error: {error.message}</span>;
+    }
+
+    return (
+        <>
+            <StatView data={data}/>
+        </>
+    );
+}
+```
+
+
+
