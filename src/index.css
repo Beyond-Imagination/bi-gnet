@@ -17,7 +17,8 @@ body {
   background: #F4F4F4;
 }
 #root{
-  height: 100%;
+  width: 375px;
+  height: 100vh;
   background: white;
 }
 
@@ -28,4 +29,15 @@ body {
 }
 #wrap {
   padding: 0 15px;
+  height: 90%;
+  overflow: auto;
+}
+#wrap::-webkit-scrollbar {
+  width: 3px;
+}
+#wrap::-webkit-scrollbar-thumb {
+  background-color: grey;
+}
+#wrap::-webkit-scrollbar-track {
+  background-color: #ABABAB;
 }
