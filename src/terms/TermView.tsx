@@ -4,10 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { color } from "highcharts";
 import { Stack } from "@mui/material";
-import { fontSize } from "@mui/system";
-
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -17,7 +14,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { AlignVerticalCenter } from "@mui/icons-material";
 import {useNavigate} from "react-router-dom";
 
 

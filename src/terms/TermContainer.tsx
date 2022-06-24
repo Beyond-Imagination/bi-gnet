@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import TermView from "./TermView";
 
 interface TermContainerProps {
-
 }
-//생년월일 : year, month, day
 const TermContainer: React.FC<TermContainerProps> = ({}) => {
     const [year,setYear] = React.useState<number>(0);
     const [month,setMonth] = React.useState<number>(0);
