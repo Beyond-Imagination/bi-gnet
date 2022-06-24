@@ -135,7 +135,17 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
             />
         </Box>
     );
-    const templateStyle = { margin: "0px" }
+    const saveData = () =>{
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        
+        window.localStorage.setItem("year",JSON.stringify(year));
+        window.localStorage.setItem("month",JSON.stringify(month));
+        window.localStorage.setItem("day",JSON.stringify(day));
+        window.localStorage.setItem("age",JSON.stringify(todayYear-year+1))
+        window.localStorage.setItem("gender",JSON.stringify(gender));
+        window.localStorage.setItem("terms",JSON.stringify(terms));
+    }
 
 
     return (
@@ -233,6 +243,7 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
             <div style={{textAlign:"center"}}>
                 <Button fullWidth={true} variant={terms[0]&&terms[1] ? "contained" : "outlined"} disabled={terms[0]&&terms[1] ? false : true}
                             onClick={() => {
+                                saveData();
                                 navigation("/");
                             }}
                         >

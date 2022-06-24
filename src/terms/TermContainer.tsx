@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from 'react';
 import TermView from "./TermView";
 
 interface TermContainerProps {
@@ -11,6 +11,17 @@ const TermContainer: React.FC<TermContainerProps> = ({}) => {
     const [day,setDay] = React.useState<number>(0);
     const [gender,setGender] = React.useState<number>(0);
     const [terms,setTerms] = React.useState<boolean[]>([false,false]);
+
+    useEffect(() => {
+        setYear(Number(window.localStorage.getItem("year")))
+        setMonth(Number(window.localStorage.getItem("month")))
+        setDay(Number(window.localStorage.getItem("day")))
+        setGender(Number(window.localStorage.getItem("gender")))
+        const val = window.localStorage.getItem("terms");
+        if(val != null)
+            setTerms(JSON.parse(val));
+        
+      },[]);
 
     return (
         <main style={{padding: "1rem 0"}}>
