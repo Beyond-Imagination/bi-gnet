@@ -1,17 +1,17 @@
 import React from "react";
-import AccordionList, {AccordionListProps} from "../common/AccordionList";
-import {AccordionProps} from "../common/AccordionList";
+import Benefit, {IBenefit} from "./Benefit";
 
-interface BenefitViewProps extends AccordionListProps{
-
+interface BenefitViewProps {
+    benefits: IBenefit[]
 }
 
-
-const BenefitView: React.FC<BenefitViewProps> = ({data, expanded, handleChange}) => {
+const BenefitView: React.FC<BenefitViewProps> = ({benefits}) => {
     return (
         <>
             <h2>귀농 혜택</h2>
-            <AccordionList data={data} expanded={expanded} handleChange={handleChange}/>
+            {
+                benefits.map(benefit => <Benefit key={benefit._id} data={benefit} />)
+            }
         </>
     )
 }
