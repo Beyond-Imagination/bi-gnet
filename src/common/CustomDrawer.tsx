@@ -14,6 +14,7 @@ import Drawer from "@mui/material/Drawer";
 import {Link, useNavigate} from "react-router-dom";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import styled from "@emotion/styled";
+import Typography from "@mui/material/Typography";
 
 const Header = styled.div`
   display: flex;
@@ -121,7 +122,9 @@ export default function CustomDrawer() {
                 }}/></Button>
             </React.Fragment>
             <React.Fragment>
-                <Link to={"/"}> 귀농어때</Link>
+                <Typography variant={'subtitle1'} onClick={() => {
+                    navigation('/')
+                }}>귀농어때</Typography>
             </React.Fragment>
             <React.Fragment key={'right'}>
                 <Button onClick={toggleDrawer(true)}><MenuIcon style={{color: "#000"}}/></Button>
