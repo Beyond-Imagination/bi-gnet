@@ -11,7 +11,7 @@ import StatIcon from "@mui/icons-material/QueryStats";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import styled from "@emotion/styled";
 
@@ -121,7 +121,7 @@ export default function CustomDrawer() {
                 }}/></Button>
             </React.Fragment>
             <React.Fragment>
-                귀농어때
+                <Link to={"/"}> 귀농어때</Link>
             </React.Fragment>
             <React.Fragment key={'right'}>
                 <Button onClick={toggleDrawer(true)}><MenuIcon style={{color: "#000"}}/></Button>
