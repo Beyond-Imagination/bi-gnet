@@ -62,7 +62,7 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
     }
 
     const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTerms([event.target.checked, event.target.checked]);        
+        setTerms([event.target.checked, event.target.checked]);
     };
 
     const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -134,7 +134,7 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
     const saveData = () =>{
         var today = new Date();
         var todayYear = today.getFullYear();
-        
+
         window.localStorage.setItem("year",JSON.stringify(year));
         window.localStorage.setItem("month",JSON.stringify(month));
         window.localStorage.setItem("day",JSON.stringify(day));
@@ -146,9 +146,14 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
 
     return (
         <>
-            <h1>
-                <img src="./src"></img>귀농 어때
-            </h1>
+            <div style={{display: 'flex', alignItems: 'center'}}>
+                <div>
+                    <img src={require('../assets/img.png')} style={{width: 50, marginRight: 10}}></img>
+                </div>
+                <h1>
+                    귀농 어때
+                </h1>
+            </div>
             <div style={{ marginBottom: '0px', fontSize: '25px', fontWeight: 'bold' }}>
                 고객님
             </div>
@@ -246,7 +251,7 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
                             확인
                 </Button>
             </div>
-            
+
         </>
     )
 }
