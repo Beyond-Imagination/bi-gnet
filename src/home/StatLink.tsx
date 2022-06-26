@@ -12,8 +12,8 @@ interface StatLinkProps {
 const StatLink: React.FC<StatLinkProps> = ({province}) => {
     const navigation = useNavigate();
     return (
-        <>
-            <div>
+        <div style={{marginBottom: 12}}>
+            <div style={{marginBottom: 12}}>
                 <Typography variant={'subtitle1'}>{`${province} 귀농현황`}</Typography>
             </div>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -48,7 +48,7 @@ const StatLink: React.FC<StatLinkProps> = ({province}) => {
                 </StatIcon>
 
             </div>
-        </>
+        </div>
     )
 }
 

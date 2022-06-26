@@ -33,7 +33,7 @@ const HomeContainer: React.FC = () => {
                         }
                     }
                 }]
-            }} selectProvince={province}/>
+            }} selectProvince={province} setProvince={setProvince}/>
         </main>
     );
 }
