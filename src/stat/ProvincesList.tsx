@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from "@emotion/styled";
+import {useNavigate} from "react-router-dom";
 
 
 interface ProvincesListProps {
-    provinces: string[],
-    selectedProvince: string,
+    provinces: string[];
+    selectedProvince: string;
+    setProvince: any;
 }
 
 const ProvincesWrapper = styled.div`
@@ -32,14 +34,16 @@ const ProvincesBox = styled.div`
   }
 `
 
-const ProvincesList: React.FC<ProvincesListProps> = ({selectedProvince, provinces}) => {
-
+const ProvincesList: React.FC<ProvincesListProps> = ({selectedProvince, provinces, setProvince}) => {
+    let navigation = useNavigate();
     return (
         <>
             <h3>다른 시도 현황 보기</h3>
             <ProvincesWrapper>
-                {provinces.filter(value => value != selectedProvince).map(value =>
-                    <ProvincesBox>{value}</ProvincesBox>)}
+                {provinces.sort().filter(value => value != selectedProvince).map(value =>
+                    <ProvincesBox onClick={() => {
+                        setProvince(value)
+                    }}>{value}</ProvincesBox>)}
             </ProvincesWrapper>
         </>
     )

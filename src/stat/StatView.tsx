@@ -7,17 +7,20 @@ import ProvincesList from "./ProvincesList";
 import {provinces} from '../global-state/province'
 import {useLocation, useParams} from "react-router-dom";
 import queryString from 'query-string'
+import {StatusApi} from "./StatContainer";
 
 interface StatViewProps {
     province: string;
+    data: StatusApi;
+    setProvince: any;
 }
 
-const StatView: React.FC<StatViewProps> = ({province}) => {
+const StatView: React.FC<StatViewProps> = ({province, data,setProvince}) => {
     const genderRef = useRef<null | HTMLDivElement>(null);
     const ageRef = useRef<null | HTMLDivElement>(null);
     const cropRef = useRef<null | HTMLDivElement>(null);
     const breedRef = useRef<null | HTMLDivElement>(null);
-    let { search } = useLocation();
+    let {search} = useLocation();
     const {category} = queryString.parse(search);	// 문자열의 쿼리스트링을 Object로 변환
 
     useEffect(() => {
@@ -42,11 +45,11 @@ const StatView: React.FC<StatViewProps> = ({province}) => {
         < >
             <div>
                 <h2>{province} 귀농 현황</h2>
-                <AgeStat myRef={ageRef}/>
-                <GenderStat myRef={genderRef}/>
-                <CropStat myRef={cropRef}/>
-                <BreedStat myRef={breedRef}/>
-                <ProvincesList provinces={provinces} selectedProvince={province}/>
+                <AgeStat myRef={ageRef} data={data.age}/>
+                <GenderStat myRef={genderRef} data={data.gender}/>
+                <CropStat myRef={cropRef} data={data.crop}/>
+                <BreedStat myRef={breedRef} data={data.breed}/>
+                <ProvincesList provinces={provinces} selectedProvince={province} setProvince={setProvince}/>
             </div>
 
         </>

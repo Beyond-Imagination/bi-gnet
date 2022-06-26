@@ -212,7 +212,6 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
                     <Button variant={gender == 2 ? "outlined" : "contained"}
                         onClick={() => {
                             setGender(1);
-                            console.log(gender);
                         }}
                     >
                         남자
@@ -220,7 +219,6 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
                     <Button variant={gender == 1 ? "outlined" : "contained"}
                         onClick={() => {
                             setGender(2);
-                            console.log(gender);
                         }}
                     >
                         여자
@@ -243,12 +241,12 @@ const TermView: React.FC<TermViewProps> = ({ year, month, day, gender, terms, se
             </div>
             <div style={{textAlign:"center"}}>
                 <Button fullWidth={true} variant={terms[0]&&terms[1] ? "contained" : "outlined"} disabled={terms[0]&&terms[1] ? false : true}
-                            onClick={() => {
-                                saveData();
-                                navigation("/");
-                            }}
-                        >
-                            확인
+                        onClick={() => {
+                            saveData();
+                            navigation("/");
+                        }}
+                >
+                    확인
                 </Button>
             </div>
 
