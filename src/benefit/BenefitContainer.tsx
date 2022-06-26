@@ -16,7 +16,7 @@ const BenefitContainer: React.FC<BenefitContainerProps> = ({}) => {
     const [state, setState] = React.useState<BenefitState>({benefits: [], hasMore: true});
 
     const loadFunc = (page:number) => {
-        fetch(`http://localhost:3001/benefits?page=${page}`) // host 를 환경변수에서 읽도록 수정
+        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${page}`) // host 를 환경변수에서 읽도록 수정
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};

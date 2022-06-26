@@ -23,7 +23,7 @@ export interface TrendApi {
 
 
 const fetchTrendList = (age: number, gender: string,) =>
-    fetch(`http://localhost:3001/trends?age=${age},gender=${gender}`) // 요청할 API 주소
+    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/trends?age=${age},gender=${gender}`) // 요청할 API 주소
         .then(res => res.json());
 
 const TrendList: React.FC<TrendListProps> = ({age, gender, setProvince}) => {

@@ -25,6 +25,7 @@ const HomeView: React.FC<HomeViewProps> = ({option, selectProvince,setProvince})
     }, []);
 
 
+    console.log(process.env)
     return (
         <>
             <div style={{width: '200%', marginLeft: -80}}>

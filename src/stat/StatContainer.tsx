@@ -9,7 +9,7 @@ interface StatContainerProps {
 }
 
 const fetchStatList = (province: string) =>
-    fetch(`http://localhost:3001/stats?province=${province}`) // 요청할 API 주소
+    fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/stats?province=${province}`) // 요청할 API 주소
         .then(res => res.json());
 
 export interface ApiProp {
