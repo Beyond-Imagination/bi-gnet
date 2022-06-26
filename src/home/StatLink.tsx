@@ -13,8 +13,10 @@ const StatLink: React.FC<StatLinkProps> = ({province}) => {
     const navigation = useNavigate();
     return (
         <div style={{marginBottom: 12}}>
-            <div style={{marginBottom: 12}}>
-                <Typography variant={'subtitle1'}>{`${province} 귀농현황`}</Typography>
+            <div style={{marginBottom: 12}} onClick={() => {
+                navigation('/stat')
+            }}>
+                <Typography variant={'subtitle1'}>{`${province} 귀농현황 > `}</Typography>
             </div>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <StatIcon onClick={() => {

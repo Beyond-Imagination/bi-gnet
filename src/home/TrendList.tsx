@@ -3,6 +3,7 @@ import {StatMap} from "../stat/StatContainer";
 import {useQuery} from "react-query";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import {useNavigate} from "react-router-dom";
 
 interface TrendListProps {
     age: number;
@@ -22,11 +23,12 @@ export interface TrendApi {
 }
 
 
-const fetchTrendList = (age: number, gender: string,) =>
+export const fetchTrendList = (age: number, gender: string,) =>
     fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/trends?age=${age}&gender=${gender}`) // 요청할 API 주소
         .then(res => res.json());
 
 const TrendList: React.FC<TrendListProps> = ({age, gender, setProvince}) => {
+    let navigation = useNavigate();
     const {status, data, error} = useQuery<TrendApiProp>(age + gender, () => {
         return fetchTrendList(age, gender)
     });
@@ -37,11 +39,15 @@ const TrendList: React.FC<TrendListProps> = ({age, gender, setProvince}) => {
 
     return (
         <div>
-            <div style={{marginBottom: 12}}>
-                <Typography variant={'subtitle1'}> {data.trends[0].title}</Typography>
+            <div style={{marginBottom: 12}} onClick={() => {
+                navigation(`/trend?age=${age}&gender=${gender}`)
+            }}>
+                <Typography variant={'subtitle1'}> {data.trends[0].title + ' >'}</Typography>
             </div>
             <div style={{display: 'flex', width: '200%'}}>
-                {data.trends[0].data.slice(0, 5).map((value, idx) => {
+                {data.trends[0].data.sort((a, b) => {
+                    return b.value - a.value;
+                }).slice(0, 5).map((value, idx) => {
                     return (<div style={{
                         width: 80,
                         height: 80,
@@ -55,7 +61,7 @@ const TrendList: React.FC<TrendListProps> = ({age, gender, setProvince}) => {
                         overflow: 'auto'
                     }}
                                  onClick={() => {
-                                     setProvince(value.key)
+                                     navigation(`/trend?age=${age}&gender=${gender}`)
                                  }}
                     >
                         <div style={{marginBottom: 4}}>

@@ -152,3 +152,41 @@ export let breedOption: Highcharts.Options = {
     },
 
 }
+
+export let trendOption: Highcharts.Options = {
+    chart: {
+        type: 'bar',
+        height: 500,
+        events: {
+            load() {
+                this.showLoading();
+                setTimeout(this.hideLoading.bind(this), 1000);
+            }
+        }
+
+    },
+    credits: {
+        enabled: false
+    },
+    title: {
+        text: ''
+    },
+    xAxis: {
+        type: 'category',
+        tickPosition: 'outside'
+    },
+    yAxis: {
+        title: {
+            text: ''
+        },
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 4
+        }
+    },
+
+}
