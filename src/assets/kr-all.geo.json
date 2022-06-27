@@ -437,7 +437,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.81,
-        "hc-middle-y": 0.72,
+        "hc-middle-y": 0.2,
         "hc-key": "kr-kg",
         "hc-a2": "KG",
         "labelrank": "6",
@@ -1539,7 +1539,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.51,
-        "hc-middle-y": 0.51,
+        "hc-middle-y": 0.40,
         "hc-key": "kr-cb",
         "hc-a2": "CB",
         "labelrank": "6",
@@ -2094,8 +2094,8 @@
       "id": "KR.KN",
       "properties": {
         "hc-group": "admin1",
-        "hc-middle-x": 0.35,
-        "hc-middle-y": 0.46,
+        "hc-middle-x": 0.55,
+        "hc-middle-y": 0.36,
         "hc-key": "kr-kn",
         "hc-a2": "KN",
         "labelrank": "6",
@@ -3207,7 +3207,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.72,
-        "hc-middle-y": 0.32,
+        "hc-middle-y": 0.3,
         "hc-key": "kr-2685",
         "hc-a2": "SJ",
         "labelrank": "6",
@@ -6449,7 +6449,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.32,
-        "hc-middle-y": 0.67,
+        "hc-middle-y": 0.45,
         "hc-key": "kr-2688",
         "hc-a2": "NG",
         "labelrank": "6",
@@ -7769,7 +7769,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.55,
-        "hc-middle-y": 0.47,
+        "hc-middle-y": 0.2,
         "hc-key": "kr-kw",
         "hc-a2": "KW",
         "labelrank": "6",
@@ -8438,7 +8438,7 @@
       "id": "KR.GN",
       "properties": {
         "hc-group": "admin1",
-        "hc-middle-x": 0.47,
+        "hc-middle-x": 0.7,
         "hc-middle-y": 0.48,
         "hc-key": "kr-gn",
         "hc-a2": "GN",
@@ -9431,7 +9431,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.50,
-        "hc-middle-y": 0.50,
+        "hc-middle-y": -1,
         "hc-key": "kr-cj",
         "hc-a2": "CJ",
         "labelrank": "7",
@@ -9625,7 +9625,7 @@
       "properties": {
         "hc-group": "admin1",
         "hc-middle-x": 0.40,
-        "hc-middle-y": 0.31,
+        "hc-middle-y": 0,
         "hc-key": "kr-gb",
         "hc-a2": "GB",
         "labelrank": "6",

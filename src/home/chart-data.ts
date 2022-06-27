@@ -18,7 +18,8 @@ export const koreaData = [
     ['kr-gb', 0],
     ['kr-tg', 0],
     ['kr-sj',0],
-    ['kr-kj',0]
+    ['kr-kj',0],
+    ['default',1]
 ];
 
 export let initialOption = {
