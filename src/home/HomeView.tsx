@@ -3,18 +3,20 @@ import HighchartsReact from "highcharts-react-official";
 import React, {useEffect} from "react";
 import StatLink from './StatLink';
 import TrendList from "./TrendList";
+import { Button } from '@mui/material';
 
 interface HomeViewProps {
     option: any,
+    isOpened : Boolean,
     selectProvince: any
     setProvince: any;
+    setIsOpened : any;
 }
 
 
-const HomeView: React.FC<HomeViewProps> = ({option, selectProvince,setProvince}) => {
+const HomeView: React.FC<HomeViewProps> = ({option, isOpened, selectProvince,setProvince,setIsOpened}) => {
     const [age, setAge] = React.useState<number>(0);
     const [gender, setGender] = React.useState<string>("");
-
 
     useEffect(() => {
         setAge(Number(window.localStorage.getItem("age")))
@@ -24,17 +26,25 @@ const HomeView: React.FC<HomeViewProps> = ({option, selectProvince,setProvince})
 
     }, []);
 
-
-    console.log(process.env)
     return (
         <>
-            <div style={{width: '200%', marginLeft: -80}}>
-                <HighchartsReact
-                    highcharts={Highcharts}
-                    constructorType={"mapChart"}
-                    options={option}
-                />
-            </div>
+            {
+                isOpened ? 
+                <div style={{width: '200%', marginLeft: -80}}>
+                    <HighchartsReact
+                        highcharts={Highcharts}
+                        constructorType={"mapChart"}
+                        options={option}
+                    />
+                </div>:
+                <Button fullWidth={true} variant={"contained"} style={{marginBottom:'20px'}}
+                                onClick={() => {
+                                    setIsOpened(true);
+                                }}
+                        >
+                        지역선택하기
+                </Button>
+            }
             <div>
                 <StatLink province={selectProvince}/>
             </div>

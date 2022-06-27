@@ -13,9 +13,12 @@ export const koreaData = [
     ['kr-in', 0],
     ['kr-kw', 0],
     ['kr-gn', 0],
+    ['kr-so', 0],
     ['kr-cj', 0],
     ['kr-gb', 0],
     ['kr-tg', 0],
+    ['kr-sj',0],
+    ['kr-kj',0]
 ];
 
 export let initialOption = {
@@ -32,6 +35,9 @@ export let initialOption = {
         text: ' '
     },
     legend: {
+        enabled: false
+    },
+    tooltip: {
         enabled: false
     },
     mapNavigation: {
