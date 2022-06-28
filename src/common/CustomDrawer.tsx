@@ -127,14 +127,15 @@ export default function CustomDrawer() {
                 }}>귀농어때</Typography>
             </React.Fragment>
             <React.Fragment key={'right'}>
-                <Button onClick={toggleDrawer(true)}><MenuIcon style={{color: "#000"}}/></Button>
-                <Drawer
-                    anchor={'right'}
-                    open={state['right']}
-                    onClose={toggleDrawer(false)}
-                >
-                    {list()}
-                </Drawer>
+                {/*<div style={{width: 10}}></div>*/}
+                <Button disabled={true}></Button>
+                {/*<Drawer*/}
+                {/*    anchor={'right'}*/}
+                {/*    open={state['right']}*/}
+                {/*    onClose={toggleDrawer(false)}*/}
+                {/*>*/}
+                {/*    {list()}*/}
+                {/*</Drawer>*/}
             </React.Fragment>
         </Header>
     );
