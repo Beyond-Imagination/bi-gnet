@@ -50,7 +50,9 @@ const HomeView: React.FC<HomeViewProps> = ({option, isOpened, selectProvince,set
                 <StatLink province={selectProvince}/>
             </div>
             <TrendList age={age} gender={gender} setProvince={setProvince}/>
-            <BenefitContainer infinite={false}/>
+            <div style={{marginTop: 12, marginBottom: 12}} >
+                <BenefitContainer infinite={false} />
+            </div>
         </>
     )
 }

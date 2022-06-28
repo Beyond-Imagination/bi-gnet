@@ -39,7 +39,7 @@ const BenefitContainer: React.FC<BenefitContainerProps> = ({infinite}) => {
                 useWindow={false}
                 initialLoad={true}
             >
-                <BenefitView benefits={state.benefits} />
+                <BenefitView benefits={state.benefits} province={province}/>
             </InfiniteScroll>
         </main>
     );
