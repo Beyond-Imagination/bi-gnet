@@ -118,7 +118,7 @@ export default function CustomDrawer() {
         <Header>
             <React.Fragment>
                 <Button><KeyboardArrowLeftIcon style={{color: "#000"}} onClick={() => {
-                    navigation(-1)
+                    navigation('/')
                 }}/></Button>
             </React.Fragment>
             <React.Fragment>
