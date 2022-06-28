@@ -19,7 +19,7 @@ const App: React.FC = ({}) => {
                     <Route path="/" element={<HomeContainer/>}/>
                     <Route path="/stat" element={<StatContainer/>}/>
                     <Route path="/trend" element={<TrendContainer/>}/>
-                    <Route path="/benefit" element={<BenefitContainer/>}/>
+                    <Route path="/benefit" element={<BenefitContainer infinite={true}/>}/>
                     <Route path="/experience" element={<ExperienceContainer/>}/>
                 </Routes>
             </div>

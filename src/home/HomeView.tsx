@@ -4,6 +4,7 @@ import React, {useEffect} from "react";
 import StatLink from './StatLink';
 import TrendList from "./TrendList";
 import { Button } from '@mui/material';
+import BenefitContainer from "../benefit/BenefitContainer";
 
 interface HomeViewProps {
     option: any,
@@ -49,7 +50,7 @@ const HomeView: React.FC<HomeViewProps> = ({option, isOpened, selectProvince,set
                 <StatLink province={selectProvince}/>
             </div>
             <TrendList age={age} gender={gender} setProvince={setProvince}/>
-
+            <BenefitContainer infinite={false}/>
         </>
     )
 }
