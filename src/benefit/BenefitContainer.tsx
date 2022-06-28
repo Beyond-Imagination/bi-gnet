@@ -19,7 +19,7 @@ const BenefitContainer: React.FC<BenefitContainerProps> = ({}) => {
     const [province, setProvince] = useRecoilState(provinceState);
 
     const loadFunc = (page:number) => {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${page}&province=${province}`) // host 를 환경변수에서 읽도록 수정
+        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${page}&province=${province}`)
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};
