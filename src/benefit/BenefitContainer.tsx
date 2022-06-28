@@ -6,7 +6,7 @@ import {useRecoilState} from "recoil";
 import {provinceState} from "../global-state/province";
 
 interface BenefitContainerProps {
-
+    infinite: boolean
 }
 
 interface BenefitState {
@@ -14,17 +14,17 @@ interface BenefitState {
     hasMore: boolean
 }
 
-const BenefitContainer: React.FC<BenefitContainerProps> = ({}) => {
+const BenefitContainer: React.FC<BenefitContainerProps> = ({infinite}) => {
     const [state, setState] = React.useState<BenefitState>({benefits: [], hasMore: true});
     const [province, setProvince] = useRecoilState(provinceState);
 
     const loadFunc = (page:number) => {
-        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${page}&province=${province}`)
+        fetch(`http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/benefits?page=${page}&province=${province}&limit=5`)
             .then((response) => response.json())
             .then((data) => {
                 let clone = {...state};
                 clone.benefits = clone.benefits.concat(data.docs)
-                clone.hasMore = data.hasNextPage
+                clone.hasMore = infinite ? data.hasNextPage : false
                 setState(clone)
             });
     }
