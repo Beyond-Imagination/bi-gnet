@@ -26,10 +26,11 @@ const HomeContainer: React.FC = () => {
         if (val != null)
             setTerms(JSON.parse(val));
         const val2 = window.localStorage.getItem("province");
+        console.log(val2)
         if (val2 != null)
             setProvince(JSON.parse(val2));
         else
-            window.localStorage.setItem("province",JSON.stringify("경기도"));
+            setIsOpened(true)
     }, []);
 
     if(year == 0 || month == 0 || day == 0 || gender == 0 || terms == [false, false])
@@ -37,7 +38,7 @@ const HomeContainer: React.FC = () => {
 
     return (
         <main style={{padding: "1rem 0", overflow: "hidden"}}>
-            
+
             <HomeView isOpened={isOpened} setIsOpened={setIsOpened} option={{
                 ...option,
                 series: [{
@@ -52,13 +53,13 @@ const HomeContainer: React.FC = () => {
                         enabled: true,
                         useHTML: true,
                         allowOverlap: true,
-                        
+
                         formatter:function(this :any){
-                            
+
                             console.log(this)
                             var province = this.key;
                             if(province == '충청북도')
-                                return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-cb.png'></img>`                                
+                                return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-cb.png'></img>`
                             else if(province == '충청남도')
                                 return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-cn.png'></img>`
                             else if(province == '전라북도')
@@ -74,10 +75,10 @@ const HomeContainer: React.FC = () => {
                             else if(province == '강원도')
                                 return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-kw.png'></img>`
                             else if(province == '제주특별자치도')
-                                return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-jj.png'></img>`    
+                                return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-jj.png'></img>`
                         }
                     },
-                    
+
                     point: {
                         events: {
                             click:(event: any) => {

@@ -30,7 +30,7 @@ const HomeView: React.FC<HomeViewProps> = ({option, isOpened, selectProvince,set
     return (
         <>
             {
-                isOpened ? 
+                isOpened ?
                 <div style={{width: '200%', marginLeft: -80}}>
                     <HighchartsReact
                         highcharts={Highcharts}
