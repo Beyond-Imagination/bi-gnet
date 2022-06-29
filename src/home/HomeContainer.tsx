@@ -26,7 +26,6 @@ const HomeContainer: React.FC = () => {
         if (val != null)
             setTerms(JSON.parse(val));
         const val2 = window.localStorage.getItem("province");
-        console.log(val2)
         if (val2 != null)
             setProvince(JSON.parse(val2));
         else
@@ -56,7 +55,6 @@ const HomeContainer: React.FC = () => {
 
                         formatter:function(this :any){
 
-                            console.log(this)
                             var province = this.key;
                             if(province == '충청북도')
                                 return `<img style = "width:70px"src ='${process.env.PUBLIC_URL}/kr-cb.png'></img>`

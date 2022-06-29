@@ -28,7 +28,6 @@ const TrendView: React.FC<TrendViewProps> = ({data}) => {
             }
         )
     })
-    console.log(map)
     return (
         <>
             <h3>{data.title}</h3>
