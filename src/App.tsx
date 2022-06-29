@@ -2,7 +2,7 @@ import React from 'react';
 import CustomDrawer from "./common/CustomDrawer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomeContainer from './home/HomeContainer';
-import ExperienceContainer from "./experience/ExperienceContainer";
+import WeekendFarmContainer from "./experience/WeekendFarmContainer";
 import BenefitContainer from "./benefit/BenefitContainer";
 import TrendContainer from "./trend/TrendContainer";
 import StatContainer from "./stat/StatContainer";
@@ -20,7 +20,7 @@ const App: React.FC = ({}) => {
                     <Route path="/stat" element={<StatContainer/>}/>
                     <Route path="/trend" element={<TrendContainer/>}/>
                     <Route path="/benefit" element={<BenefitContainer infinite={true}/>}/>
-                    <Route path="/experience" element={<ExperienceContainer/>}/>
+                    <Route path="/weekend-farm" element={<WeekendFarmContainer infinite={true}/>}/>
                 </Routes>
             </div>
         </BrowserRouter>

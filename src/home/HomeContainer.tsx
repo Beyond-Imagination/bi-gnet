@@ -31,7 +31,7 @@ const HomeContainer: React.FC = () => {
             setProvince(JSON.parse(val2));
         else
             setIsOpened(true)
-    }, []);
+    }, [province]);
 
     if(year == 0 || month == 0 || day == 0 || gender == 0 || terms == [false, false])
         navigation("/terms");
